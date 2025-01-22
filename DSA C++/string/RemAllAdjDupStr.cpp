@@ -1,0 +1,1 @@
+// Remove all adjacent duplicate in String
