@@ -111,6 +111,26 @@ void deleteNode(int position, Node* & head)
     delete curr;
   }
 }
+
+
+bool isCircularList(Node* head) {
+    //empty list
+    if(head == NULL) {
+        return false;
+    }
+
+    Node* temp = head -> next;
+    while(temp != NULL && temp != head ) {
+        temp = temp -> next;
+    }
+
+    if(temp == head ) {
+        return true;
+    }
+
+    return false;
+
+}
 int main()
 {
 
@@ -141,6 +161,8 @@ int main()
 
    cout << "head: " << head->data << endl;
   cout << "tail:" << tail->data << endl;
+
+
 
   return 0;
 }
