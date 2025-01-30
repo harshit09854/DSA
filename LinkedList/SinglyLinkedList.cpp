@@ -118,6 +118,8 @@ void deleteNode(int position, Node* & head) {
     }
 }
 
+//Harshit Pokharna
+
 bool isCircularList(Node* head) {
     //empty list
     if(head == NULL) {
