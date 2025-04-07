@@ -48,6 +48,8 @@ bool isCyclicDFS(int node,int parent, unordered_map<int, bool> &visited, unorder
 
 }
 
+//n =no. of nodes
+//m = no. of edges
 string cycleDetection(vector<vector<int>>& edges, int n, int m) {
     unordered_map<int, list<int>> adj;
 
