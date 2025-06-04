@@ -1,23 +1,65 @@
-vector < vector < int >> printAdjacency(int n, int m, vector < vector < int >> & edges) {
-  // Write your code here.
-  vector<int> ans[n];
+#include <iostream>
+#include<unordered_map>
+#include<list>
 
-  for(int i=0;i<m;i++){
-      int u = edges[i][0];
-      int v = edges[i][1];
+using namespace std;
 
-      ans[u].push_back(v);
-      ans[v].push_back(u);
-  }
+class graph
+{
 
-  vector<vector<int>> adj(n);
-  for(int i=0;i<n;i++){
-      adj[i].push_back(i);
+public:
+    unordered_map<int, list<int>> adj;
+
+    void addEdge(int u, int v, bool direction)
+    {
+
+        adj[u].push_back(v);
+
+        if (direction == 0)
+        {
+            adj[v].push_back(u);
+        }
+    }
+
+    void printAdjList()
+    {
+        for (auto i : adj)
+        {
+            cout << i.first << "->";
+            for (auto j : i.second)
+            {
+                cout << j << ",";
+            }
+            cout << endl;
+        }
+    }
+
+};
+
+int main()
+{  
+     int n;
+     cout<<"Enter the number of nodes"<<endl;
+     cin>>n;
+
+     int m;
+     cout<<"Enter the number of edges"<<endl;
+     cin>>m;
+      
+     graph g;
+
+     for(int i=0;i<m;i++){
+        int u,v;
+
+        cin>>u>> v;
+         
+        g.addEdge(u,v,0);
+     }
+
+     g.printAdjList();
 
 
-      for(int j=0;j<ans[i].size();j++){
-          adj[i].push_back(ans[i][j]);
-      }
-  }
-  return adj;
+
+
+    return 0;
 }
